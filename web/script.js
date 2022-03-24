@@ -107,12 +107,9 @@ function download(filename, text) {
     "data:text/plain;charset=utf-8," + encodeURIComponent(text)
   );
   element.setAttribute("download", filename);
-
   element.style.display = "none";
   document.body.appendChild(element);
-
   element.click();
-
   document.body.removeChild(element);
 }
 
@@ -129,28 +126,33 @@ async function main() {
     getCode();
     let result = rs_compile(code, galtype);
     if (result.Err != null) {
-      console.error(result.Err);
+      document.getElementById("error").innerHTML = result.Err;
     } else {
-      download(filename, result.Ok);
+      download(filename + ".jed", result.Ok);
     }
   };
   document.getElementById("transpile").onclick = () => {
     getCode();
     let result = rs_transpile(code);
     if (result.Err != null) {
-      console.error(result.Err);
+      document.getElementById("error").innerHTML = result.Err;
     } else {
-      console.log(result.Ok);
+      download(filename + ".PLD", result.Ok);
     }
   };
   document.getElementById("tabledata").onclick = () => {
     getCode();
     let result = rs_tabledata(code);
     if (result.Err != null) {
-      console.error(result.Err);
+      document.getElementById("error").innerHTML = result.Err;
     } else {
-      console.log(result.Ok);
+      download(filename + ".json", JSON.stringify(result.Ok));
     }
+  };
+
+  document.getElementById("downloadCode").onclick = () => {
+    getCode();
+    download(filename + ".ogal", code);
   };
 
   document.getElementById("galtype").onchange = () => {
