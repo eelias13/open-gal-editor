@@ -100,7 +100,7 @@ dependencies = [
 [[package]]
 name = "open-gal"
 version = "0.1.0"
-source = "git+https://github.com/eeli1/open-gal#a66ef6f866e869982c6e2cfc289233e67e3e1fdd"
+source = "git+https://github.com/eelias13/open-gal#45447e800ae89e06e0d62026152d92bb8c25816f"
 dependencies = [
  "bool-algebra",
  "hardware-sim",

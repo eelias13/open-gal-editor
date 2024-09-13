@@ -8,7 +8,7 @@ crate-type = ["cdylib", "rlib"]
 
 [dependencies]
 wasm-bindgen = "0.2"
-open-gal = { git = "https://github.com/eeli1/open-gal", version = "0.1" }
+open-gal = { git = "https://github.com/eelias13/open-gal", version = "0.1" }
 serde-wasm-bindgen = "0.4"
 
 [dev-dependencies]
